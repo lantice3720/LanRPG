@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'com.github.lantice3720'
+version '0.0.0'
+
+//sourceCompatibility = JavaVersion.VERSION_16
+//targetCompatibility = JavaVersion.VERSION_16
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = uri("https://papermc.io/repo/repository/maven-public/")
+    }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
+}
+
+test {
+    useJUnitPlatform()
+}
+
+//sourceSets {
+//    main {
+//        java {
+//            srcDirs = ["src"]
+//        }
+//    }
+//}
